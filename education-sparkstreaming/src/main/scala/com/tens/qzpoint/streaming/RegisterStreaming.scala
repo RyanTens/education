@@ -18,7 +18,7 @@ object RegisterStreaming {
     System.setProperty("HADOOP_USER_NAME", "tens")
     val conf = new SparkConf().setAppName(this.getClass.getSimpleName)
       .set("spark.streaming.kafka.maxRatePerPartition", "100")
-      .setMaster("local[*]")
+      .setMaster("local[*+]")
 
     val ssc = new StreamingContext(conf, Seconds(3))
     val sparkContext = ssc.sparkContext
